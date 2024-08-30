@@ -241,3 +241,78 @@ layout
     text-align: center;
   }
 }
+
+/* 
+===========
+tiles style
+===========
+*/
+
+.tile {
+  padding: 4rem 0;
+}
+.tiles-title {
+  text-align: center;
+}
+.tiles-title h1 {
+  letter-spacing: var(--spacing);
+  color: var(--primary-6);
+}
+.tiles-center {
+  width: 90vw;
+  max-width: 1170px;
+  margin: 2px auto;
+}
+.single-tile {
+  margin-bottom: 1rem;
+}
+/* layout fot two column layout */
+@media screen and (min-width: 768px) {
+  .tiles-center {
+    display: grid;
+    column-gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* layout for three column layout */
+@media screen and (min-width: 992px) {
+  .tiles-center {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2rem;
+  }
+}
+
+/* another methode for three column layout */
+/* .tiles-center {
+  display: grid;
+  column-gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(368px, 1fr));
+} */
+/* layout for the tiles when screen is 1170px */
+@media screen and (min-width: 1170px) {
+  .tiles-center {
+    display: grid;
+    grid-template-columns: [start] 1fr [col-1-end] 1fr [col-2-end] 1fr [col-3-end] 1fr [end];
+    grid-template-rows: [start] 200px [row-1-end] 200px [row-2-end] 200px [row-3-end] 200px [row-4-end] 200px [end];
+  }
+  .single-tile img {
+    height: 100%;
+    object-fit: cover;
+  }
+  .tile-1 {
+    grid-column: start/ col-3-end;
+    grid-row: start/ row-2-end;
+  }
+  .tile-4 {
+    grid-column: start/end;
+  }
+  .tile-5 {
+    grid-column: start/ col-1-end;
+    grid-row: row-3-end/ end;
+  }
+  .tile-6 {
+    grid-column: col-1-end/ end;
+  }
+}
